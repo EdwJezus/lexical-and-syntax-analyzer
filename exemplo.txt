@@ -1,0 +1,24 @@
+* Linguagem de programacao Elgol
+* Autor Elgio Schlemer
+ 
+* Funcoes
+numero _Soma (numero Numm, numero Dois) .
+inicio .
+    elgio = Numm + Doiss .
+fim .
+ 
+* Codigo principal 
+numero Lixo . * minha variável numerica de nome Lixo
+numero Teste .
+numero Vim   
+  
+Lixo = 34 .
+NEG Lixo .
+ 
+se Lixo maior NADA .
+entao.
+inicio.
+        Lixo = NADA .
+        Teste = 3 EXP 4 .
+        Resultado = _Soma (Lixo, Teste) .
+fim.

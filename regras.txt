@@ -1,0 +1,13 @@
+identificadores = Elgol #só letras; começam com MAIUSCULA e terminam com minuscula; e possuem pelo menos 4 caracteres
+
+inteiro = 23 #inteiro não podem começar com 0, como 03; 0 não existe, então se usa um operador especial "NADA"; negativos não representados numericamente, são só atribuidos pelo operador "NEG"
+
+def _Elgol #funções seguem as regras dos identificadores, Porém devem começar com underline _. Parenteses para parametros
+
+palavras_reservadas = [elgio, numero, NADA, NEG, EXP, enquanto, se, entao, senao, para, inicio, fim, maior, menor, igual, diferente, migual Migual]
+
+#toda linha acaba com .
+
+# * inicia comentario
+
+operadores_matematicos = [=, +, -, /, x, %, EXP]
