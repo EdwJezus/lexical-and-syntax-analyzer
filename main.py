@@ -1,5 +1,4 @@
 import ply.lex as lex
-import ply.yacc as yacc
 import re
 
 reservadas = {
@@ -21,6 +20,7 @@ reservadas = {
 	'diferente': 'DIFERENTE',
 	'Migual': 	'MAIOR_IGUAL',
 	'migual': 	'MENOR_IGUAL',
+	'inteiro':	'RES_INTEIRO'
  }
 
 tokens = ('IDENTIFICADOR','INTEIRO', 'FUNCAO', 'MAIS', 'MENOS', 'DIVISAO', 'MULTIPLICACAO', 'ATRIBUICAO', 'MODULO', 'PONTO', 'VIRGULA', 'ABRE_PARENTESES', 'FECHA_PARENTESES') + tuple(reservadas.values())
@@ -36,7 +36,7 @@ def t_COMENTARIO(t):
 	pass
 
 def t_PALAVRA(t):
-	r'[a-zA-Z]+'
+	r'[a-zA-Z]{2,}'
 
 	if t.value in reservadas:
 		t.type = reservadas[t.value]
@@ -45,6 +45,7 @@ def t_PALAVRA(t):
 		t.type = 'IDENTIFICADOR'
 
 	else:
+		print(f"Identificador invalido: {t.value}")
 		return
 
 	return t
@@ -77,10 +78,25 @@ lexer = lex.lex()
 
 ###################################### TESTE
 
-with open("exemplo.txt", "r", encoding="utf-8") as arquivo:
-	teste = arquivo.read()
+if __name__ == "__main__":
+    import sys
 
-lexer.input(teste)
+    if len(sys.argv) != 2:
+        print("Uso: python main.py arquivo.txt")
+        exit()
 
-for token in lexer:
-    print(f"Tipo: {token.type:17} Valor: {token.value:<15} Linha: {token.lineno}")
+    nome_arquivo = sys.argv[1]
+
+    with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
+        codigo = arquivo.read()
+
+    lexer.input(codigo)
+
+    print(f"\nAnalisando arquivo: {nome_arquivo}\n")
+
+    for token in lexer:
+        print(
+            f"Tipo: {token.type:17} "
+            f"Valor: {str(token.value):15} "
+            f"Linha: {token.lineno}"
+        )
