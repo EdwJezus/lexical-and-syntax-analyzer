@@ -1,5 +1,5 @@
 import ply.yacc as yacc
-from main import tokens
+from lexer import tokens
 
 def p_programa(p):
     '''
